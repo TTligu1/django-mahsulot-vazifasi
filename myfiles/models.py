@@ -2,20 +2,13 @@ from django.db import models
 
 
 class Mahsulot(models.Model):
-    JANR = [('drama', 'Drama'), ('komediya', 'Komediya')]
+    Kategoryasi = [('oziq-ovqat','Oziq-ovqat'),('kiyim','Kiyim'),('texnika','Texnika' )]
     nomi = models.CharField(max_length=150)
-    rejissor = models.CharField(max_length=120)
-    yili = models.IntegerField()
-    janr = models.CharField(max_length=20, choices=JANR)
-    reyting = models.DecimalField(max_digits=3, decimal_places=1)
-# forms.py
+    narx = models.DecimalField(max_digits=10, decimal_places=2)
+    kategoriya = models.CharField(choices=Kategoryasi, max_length=50)
+    soni = models.PositiveIntegerField()
+    faol = models.BooleanField()
+    tavsif = models.TextField(blank=True)
+    qoshilgan_sana = models.DateTimeField(auto_now_add=True)
 
 
-
-from django import forms
-from . models import Mahsulot
-
-class MahsulotForm(forms.ModelForm):
-    class Meta:
-        model = Mahsulot
-        fields = ['nomi', 'rejissor', 'yili', 'janr', 'reyting']

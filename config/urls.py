@@ -16,7 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from myfiles.views import royxat, qoshish, tahrirlash, ochirish
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', royxat, name='royxat'),
+    path('qoshish/', qoshish, name='qoshish'),
+    path('tahrirlash/<int:pk>/', tahrirlash, name='tahrirlash'),
+    path('ochirish/<int:pk>/', ochirish, name='ochirish'),
 ]

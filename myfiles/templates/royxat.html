@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mahsulot royxati</title>
+</head>
+<body>
+<h1>Maxsulot sahifasiga xush kelibsiz</h1>
+<a href="{% url 'qoshish'%}"> Qoshish </a>
+<ul>
+    {% for m in mahsulotlar%}
+    <li>{{m.nomi}}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
